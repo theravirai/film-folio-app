@@ -1,0 +1,126 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif; /* Updated font-family */
+    text-rendering: optimizeLegibility; /* Improves font rendering */
+    letter-spacing: 0.1px; /* Slightly increases spacing between letters */
+    -webkit-font-smoothing: antialiased; /* Smoother font appearance on webkit browsers */
+    -moz-osx-font-smoothing: grayscale; /* Smoother font appearance on Firefox */
+  }
+
+  
+  body {
+    height: 100vh;
+    background: 
+      linear-gradient(135deg, #515861 40%, #b5e890 100%),
+      radial-gradient(circle at top left, rgba(255, 255, 255, 0.1), transparent 50%), 
+      radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.1), transparent 50%);
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0; /* Ensure body margin is zero to center correctly */
+  }
+  
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  .container {
+    font-size: 16px;
+    width: 90vw;
+    max-width: 37.5em;
+    padding: 3em 1.8em;
+    background-color: #201f28;
+    border-radius: 0.6em;
+    box-shadow: 1.2em 2em 3em rgba(0, 0, 0, 0.2);
+    position: relative; /* Required for the absolute positioning of pseudo-elements */
+    overflow: hidden; /* To prevent overflow from the glowing border */
+  }
+  
+  .container::before, .container::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 0.6em;
+    border: 2px solid transparent;
+    box-sizing: border-box;
+    pointer-events: none;
+  }
+  
+  .container::before {
+    border-top: 2px solid #ff3c78; /* Bright pink */
+    border-left: 2px solid #ff3c78; /* Bright pink */
+    animation: laserAnimation 8s linear infinite;
+  }
+  
+  .container::after {
+    border-bottom: 2px solid #ff3c78; /* Bright pink */
+    border-right: 2px solid #ff3c78; /* Bright pink */
+    animation: laserAnimationReverse 8s linear infinite;
+  }
+  
+  @keyframes laserAnimation {
+    0% {
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 0%;
+    }
+    25% {
+      width: 100%;
+      height: 0;
+    }
+    50% {
+      width: 100%;
+      height: 100%;
+    }
+    75% {
+      width: 0;
+      height: 100%;
+    }
+    100% {
+      width: 0;
+      height: 0;
+      top: 0;
+      left: 0;
+    }
+  }
+  
+  @keyframes laserAnimationReverse {
+    0% {
+      bottom: 0;
+      right: 0;
+      width: 0%;
+      height: 0%;
+    }
+    25% {
+      width: 100%;
+      height: 0;
+    }
+    50% {
+      width: 100%;
+      height: 100%;
+    }
+    75% {
+      width: 0;
+      height: 100%;
+    }
+    100% {
+      width: 0;
+      height: 0;
+      bottom: 0;
+      right: 0;
+    }
+  }
