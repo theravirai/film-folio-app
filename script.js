@@ -54,3 +54,16 @@ let getMovie = () => {
       });
   }
 };
+
+// Event listener for button click
+searchBtn.addEventListener("click", getMovie);
+
+// Event listener for "Enter" key
+movieNameRef.addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    getMovie();
+  }
+});
+
+// Call the function when page loads
+window.addEventListener("load", getMovie);
